@@ -1,50 +1,56 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: Initial -> 1.0.0
+- List of modified principles:
+  - I. Spec-First Development (Added)
+  - II. Premium Visual Experience (Added)
+  - III. Test-Driven Development (Added)
+  - IV. Component-Based Architecture (Added)
+  - V. Clean Architecture & Patterns (Added)
+- Added sections:
+  - Technical Constraints
+  - Development Workflow
+- Templates alignment:
+  - .specify/templates/plan-template.md (✅ Checked)
+  - .specify/templates/spec-template.md (✅ Checked)
+  - .specify/templates/tasks-template.md (✅ Checked)
+-->
+
+# Users App Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Spec-First Development
+No implementation without an approved specification and implementation plan. This ensures all team members align on requirements and technical approach before a single line of implementation code is written.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Premium Visual Experience
+Interfaces must be vibrant, modern, and high-fidelity. We prioritize user delight through curated color palettes (HSL), glassmorphism, smooth gradients, and subtle micro-animations. A basic MVP is not enough; the design must WOW the user.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Test-Driven Development (NON-NEGOTIABLE)
+Logic must be verified via automated tests (unit/widget/integration) that are written before the implementation. Tests must fail first (Red phase) to prove they are testing the right thing, then pass (Green phase), and finally be refactored.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Component-Based Architecture
+UI and logic must be modular, reusable, and self-contained. Avoid monolithic widgets or services. Each component should have a single responsibility and be independently testable.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Clean Architecture & Patterns
+Follow standard Flutter/Dart best practices. Maintain a clear separation of concerns between data, domain, and presentation layers. Use consistent state management patterns (e.g., BLoC or Provider) across the entire application.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technical Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- **Platform**: Flutter ^3.11.0 (Dart ^3.0)
+- **Design System**: Material 3 enabled, custom design tokens for brand consistency.
+- **Dependencies**: Use `pubspec.yaml` for dependency management; avoid ad-hoc library additions.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+1. **Specify**: Create feature spec with `/speckit.specify`.
+2. **Plan**: Generate implementation plan with `/speckit.plan`.
+3. **Tasks**: Break down implementation into actionable items with `/speckit.tasks`.
+4. **Implement**: Execute tasks following the TDD cycle with `/speckit.implement`.
+5. **Verify**: Run full test suite and manual QA before merging.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other informal practices. Amendments require a version bump and a Sync Impact Report documenting the changes across all dependent templates and documentation.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-03-27 | **Last Amended**: 2026-03-27
