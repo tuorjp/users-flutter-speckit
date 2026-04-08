@@ -9,18 +9,30 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        title: const Text('RH', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-        centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        foregroundColor: Colors.black,
       ),
       body: Center(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 400),
-            child: const LoginForm(),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  'RH',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 48,
+                    letterSpacing: 2.0,
+                    color: Colors.blueAccent,
+                  ),
+                ),
+                const SizedBox(height: 8), // "Cola" no formulário
+                const LoginForm(),
+              ],
+            ),
           ),
         ),
       ),

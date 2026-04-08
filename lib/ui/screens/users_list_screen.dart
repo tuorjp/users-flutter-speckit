@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/users_provider.dart';
 import '../widgets/user_list_item.dart';
+import 'collaborator_form_screen.dart';
 
 class UsersListScreen extends StatefulWidget {
   const UsersListScreen({Key? key}) : super(key: key);
@@ -29,8 +30,9 @@ class _UsersListScreenState extends State<UsersListScreen> {
         actions: [
           TextButton.icon(
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Formulário de cadastro em breve')),
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CollaboratorFormScreen()),
               );
             },
             icon: const Icon(Icons.add, color: Colors.blue),

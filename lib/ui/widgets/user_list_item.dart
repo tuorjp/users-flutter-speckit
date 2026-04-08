@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import '../../models/user_model.dart';
 import '../../providers/users_provider.dart';
 import 'confirm_delete_modal.dart';
+import '../screens/collaborator_form_screen.dart';
 
 class UserListItem extends StatelessWidget {
   final UserModel user;
@@ -57,7 +58,12 @@ class UserListItem extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.edit, color: Colors.blue),
               onPressed: () {
-                // To be implemented: Edit navigation
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CollaboratorFormScreen(user: user),
+                  ),
+                );
               },
             ),
             IconButton(
