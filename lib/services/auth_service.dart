@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
-import '../models/user.dart';
+import '../models/user_model.dart';
 import 'database_service.dart';
 
 class AuthService with ChangeNotifier {
   final DatabaseService _dbService = DatabaseService();
-  User? _currentUser;
+  UserModel? _currentUser;
   bool _isLoggedIn = false;
 
-  User? get currentUser => _currentUser;
+  UserModel? get currentUser => _currentUser;
   bool get isLoggedIn => _isLoggedIn;
 
   Future<bool> login(String email, String password) async {

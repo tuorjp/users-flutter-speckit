@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../services/auth_service.dart';
+import '../screens/users_list_screen.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -37,16 +38,13 @@ class _LoginFormState extends State<LoginForm> {
     if (mounted) {
       setState(() => _isLoading = false);
       if (success) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Login successful'),
-            backgroundColor: Colors.green,
-          ),
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (_) => const UsersListScreen()),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('Invalid email or password'),
+            content: Text('Email ou senha inválidos'),
             backgroundColor: Colors.red,
           ),
         );
@@ -63,16 +61,18 @@ class _LoginFormState extends State<LoginForm> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Text(
-            'Welcome back',
+            'Bem-vindo de volta',
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 8),
           const Text(
-            'Please enter your details',
+            'Por favor, insira seus dados para continuar',
             style: TextStyle(color: Colors.grey),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: 32),
           TextFormField(
@@ -84,9 +84,9 @@ class _LoginFormState extends State<LoginForm> {
             ),
             keyboardType: TextInputType.emailAddress,
             validator: (value) {
-              if (value == null || value.isEmpty) return 'Email is required';
+              if (value == null || value.isEmpty) return 'Email é obrigatório';
               final emailRegex = RegExp(r'^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$');
-              if (!emailRegex.hasMatch(value)) return 'Invalid email format';
+              if (!emailRegex.hasMatch(value)) return 'Formato de email inválido';
               return null;
             },
           ),
@@ -94,7 +94,7 @@ class _LoginFormState extends State<LoginForm> {
           TextFormField(
             controller: _passwordController,
             decoration: InputDecoration(
-              labelText: 'Password',
+              labelText: 'Senha',
               border: const OutlineInputBorder(),
               prefixIcon: const Icon(Icons.lock_outline),
               suffixIcon: IconButton(
@@ -108,7 +108,7 @@ class _LoginFormState extends State<LoginForm> {
             ),
             obscureText: _obscurePassword,
             validator: (value) {
-              if (value == null || value.isEmpty) return 'Password is required';
+              if (value == null || value.isEmpty) return 'Senha é obrigatória';
               return null;
             },
           ),
@@ -127,7 +127,7 @@ class _LoginFormState extends State<LoginForm> {
                     width: 20,
                     child: CircularProgressIndicator(strokeWidth: 2),
                   )
-                : const Text('Login'),
+                : const Text('Entrar'),
           ),
         ],
       ),
