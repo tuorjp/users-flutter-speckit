@@ -1,17 +1,22 @@
-# users
+# RH Colaboradores
 
-A new Flutter project.
+## Iniciar banco de dados
 
-## Getting Started
+```SQL
+-- Criar tabela de usuários
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  email TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  status TEXT NOT NULL
+);
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-- Inserir dados iniciais
+INSERT INTO users (name, email, password, status) 
+VALUES ('Admin User', 'admin@admin.com', '12345', 'Ativo');
+INSERT INTO users (name, email, password, status) 
+VALUES ('João Silva', 'joao@example.com', '123', 'Ativo');
+INSERT INTO users (name, email, password, status) 
+VALUES ('Maria Souza', 'maria@example.com', '123', 'Inativo');
+```
