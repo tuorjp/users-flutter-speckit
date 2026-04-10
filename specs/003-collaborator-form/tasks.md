@@ -60,8 +60,9 @@
 - [ ] T008 [P] [US1] Implement dynamic title logic for "Novo colaborador" in `lib/ui/screens/collaborator_form_screen.dart`
 - [ ] T009 [US1] Implement form fields (Name, Email, Password with Mask/Toggle, Status with Switch) in `lib/ui/screens/collaborator_form_screen.dart`
 - [ ] T010 [US1] Implement field validation (Required fields, Email format) in `lib/ui/screens/collaborator_form_screen.dart`
-- [ ] T011 [US1] Integrate with `UsersProvider.addUser` and handle SnackBar success feedback
-- [ ] T012 [US1] Implement navigation back to list after success in `lib/ui/screens/collaborator_form_screen.dart`
+- [x] T011 [US1] Integrate with `UsersProvider.addUser` and handle SnackBar success feedback
+- [x] T012 [US1] Implement navigation back to list after success in `lib/ui/screens/collaborator_form_screen.dart`
+- [x] T022 [US1] Implement email uniqueness validation (FR-009) in `DatabaseService` and `UsersProvider`
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently.
 
@@ -82,8 +83,9 @@
 
 - [ ] T015 [US2] Implement dynamic title logic for "Editar Colaborador" in `lib/ui/screens/collaborator_form_screen.dart`
 - [ ] T016 [US2] Implement data pre-filling from injected `UserModel` in `lib/ui/screens/collaborator_form_screen.dart`
-- [ ] T017 [US2] Integrate with `UsersProvider.updateUser` and handle SnackBar success feedback
-- [ ] T018 [US2] Ensure navigation back to list after update success
+- [x] T017 [US2] Integrate with `UsersProvider.updateUser` and handle SnackBar success feedback
+- [x] T018 [US2] Ensure navigation back to list after update success
+- [x] T023 [US2] Implement email uniqueness validation for other users (FR-009) in `DatabaseService` and `UsersProvider`
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently.
 
@@ -95,7 +97,8 @@
 
 - [ ] T019 [P] Update `LoginScreen` styling to include large, highlighted "RH" title above the form in `lib/ui/screens/login_screen.dart` (FR-008)
 - [ ] T020 [US1] [US2] Implement confirmation dialog (`WillPopScope` or `PopScope`) for unsaved changes before exiting in `lib/ui/screens/collaborator_form_screen.dart` (FR-007)
-- [ ] T021 Run final validation using `quickstart.md` scenarios
+- [x] T024 [P] Update unit tests for email uniqueness validation in `test/unit/users_provider_test.dart`
+- [x] T021 Run final validation using `quickstart.md` scenarios
 
 ---
 

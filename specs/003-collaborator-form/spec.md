@@ -51,7 +51,8 @@ Como um administrador do sistema RH, quero visualizar o formulário já preenchi
 
 ### Edge Cases
 
-- O que acontece quando tentamos cadastrar um colaborador com um email que já existe na base de dados? O sistema deve tratar a restrição UNIQUE do banco rejeitando a inserção via validação de email ou feedback claro amigável, não com crash de UI.
+- O que acontece quando tentamos cadastrar um colaborador com um email que já existe na base de dados? O sistema deve validar explicitamente a existência do email antes de tentar salvar, fornecendo um feedback claro ("Este email já está cadastrado").
+- Ao editar um colaborador, posso mudar o email? Sim, mas o sistema deve validar se o novo email já pertence a OUTRO colaborador. Se o email permanecer o mesmo do próprio usuário sendo editado, a validação deve permitir o salvamento.
 
 ## Requirements *(mandatory)*
 
@@ -65,6 +66,9 @@ Como um administrador do sistema RH, quero visualizar o formulário já preenchi
 - **FR-005**: O sistema DEVE validar preenchimento obrigatório e formato válido (como de email) e disparar indicações visuais in-line nestes campos ANTES da requisição efetiva de salvar.
 - **FR-006**: O sistema DEVE reportar imediatamente através de mensagens visíveis nativas (Snackbar/Toast) se houve SUCESSO ou tratar ERROS no salvamento.
 - **FR-007**: O sistema DEVE solicitar confirmação do usuário antes de descartar alterações não salvas ao tentar sair da tela (via botão "Voltar" ou "Cancelar").
+- **FR-009**: O sistema DEVE validar a unicidade do email ANTES de salvar o registro.
+  - Na criação: Validar se o email já existe em qualquer registro.
+  - Na edição: Validar se o email já existe em qualquer OUTRO registro (id != usuario_atual.id).
 
 ### Key Entities
 

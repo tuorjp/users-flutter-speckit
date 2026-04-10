@@ -81,6 +81,16 @@ class DatabaseService {
     return null;
   }
 
+  Future<bool> isEmailTaken(String email, {int? excludeId}) async {
+    final db = await database;
+    final List<Map<String, dynamic>> maps = await db.query(
+      'users',
+      where: excludeId == null ? 'email = ?' : 'email = ? AND id != ?',
+      whereArgs: excludeId == null ? [email] : [email, excludeId],
+    );
+    return maps.isNotEmpty;
+  }
+
   Future<List<UserModel>> getUsers() async {
     final db = await database;
     final List<Map<String, dynamic>> maps = await db.query('users');

@@ -33,6 +33,12 @@ class UsersProvider with ChangeNotifier {
     _errorMessage = null;
     notifyListeners();
     try {
+      if (await _dbService.isEmailTaken(user.email)) {
+        _errorMessage = 'Este email já está cadastrado';
+        _isLoading = false;
+        notifyListeners();
+        return;
+      }
       await _dbService.insertUser(user);
       await fetchUsers(); // Refresh the list
     } catch (e) {
@@ -47,6 +53,12 @@ class UsersProvider with ChangeNotifier {
     _errorMessage = null;
     notifyListeners();
     try {
+      if (await _dbService.isEmailTaken(user.email, excludeId: user.id)) {
+        _errorMessage = 'Este email já está sendo usado por outro colaborador';
+        _isLoading = false;
+        notifyListeners();
+        return;
+      }
       await _dbService.updateUser(user);
       await fetchUsers(); // Refresh the list
     } catch (e) {
